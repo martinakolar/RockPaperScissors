@@ -5,27 +5,39 @@ YourScore = 0
 ComputersScore = 0
 
 while True:
-    YourChoice = input("Choose rock, paper, or scissors. If you want to quit, type q: ").lower()
+    YourChoice = input("Choose rock, paper, or scissors. If you wish to quit, type q, and if you want to check the scores, type i: ").lower()
 
     if YourChoice == "q":
-        print(f"The final score is: YOU {YourScore} vs COMPUTER {ComputersScore}")
+        print(f"The final score is: YOU: {YourScore} vs COMPUTER: {ComputersScore}")
         if YourScore > ComputersScore:
             print("Congratz! You win!")
             break
         else:
             print("Better luck next time!")
             break
+        
+    if YourChoice == "i":
+        print(f"The current score: YOU {YourScore} vs COMPUTER {ComputersScore}")
+        if YourScore > ComputersScore:
+            print("Congratz! You're in the lead!")
+        elif YourScore < ComputersScore:
+            print("Aww. Seems like you're losing.")
+        else:
+            print("You have an equal score currently!")
+  
+        
     
     if YourChoice not in RockPaperScissorsList:
         continue
     
     ComputersChoice = random.choice(RockPaperScissorsList)
     
-    print(f"Your choice was {YourChoice}, computers' choice was {ComputersChoice}")
+    print(f"Your choice: {YourChoice}, computers' choice: {ComputersChoice}")
     
     #scenarios
     
     if YourChoice == ComputersChoice:
+        print("...continuing...")
         continue
     
     elif YourChoice == "rock":
@@ -46,7 +58,7 @@ while True:
         elif ComputersChoice == "rock":
             ComputersScore += 1
             
-    print(f"Your current score is {YourScore} and computers' score is {ComputersScore}")
+    print(f"YOU: {YourScore} vs COMPUTER: {ComputersScore}")
         
 
 
